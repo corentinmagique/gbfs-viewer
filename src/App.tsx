@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Gbfs from './Types/GBFS/Gbfs';
 import useGbfs  from './Loader/useGbfs';
 
 const App = () : React.JSX.Element => {
@@ -11,6 +10,20 @@ const App = () : React.JSX.Element => {
     <div className="App">
       {
         loading ? <h1>Loading ....</h1> : <h1>Loaded !! {status}</h1> 
+      }
+      {
+        !loading && <>
+          <h1>Available languages : </h1>
+          <ul>
+            {
+              gbfs?.languages?.map((lang, index)=>
+                <li key={index}>
+                  {lang}
+                </li>
+              )
+            }
+          </ul>
+        </>
       }
     </div>
   );

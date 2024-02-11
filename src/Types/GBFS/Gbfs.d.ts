@@ -3,7 +3,8 @@ interface rawGbfs {
 }
 
 interface Gbfs {
-    data: Map<string, Map<string, string>>
+    languages?: string[],
+    feeds: Map<string, Map<string, string>>
 }
 
 interface GbfsFeed {

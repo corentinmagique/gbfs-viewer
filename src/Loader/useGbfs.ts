@@ -24,6 +24,7 @@ const fetchData = async <T> (endpoint: string) : Promise<Response<T>> => {
 
 const useGbfs = (endpoint: string) => {
     const [gbfs, setGbfs] = useState<Gbfs | null>(null);
+    const [languages, setLanguages] = useState<string[]>();
     const [status, setStatus] = useState(0);
     const [loading, setLoading] = useState(false);
 
@@ -43,7 +44,8 @@ const useGbfs = (endpoint: string) => {
                             feeds.get(lang)?.set(feed.name, feed.url);
                         })
                     });
-                    setGbfs({data: feeds});
+                    setGbfs({languages: availableLanguages, feeds: feeds});
+                    setLanguages(availableLanguages);
                 }
             }
             setLoading(false);
