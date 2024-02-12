@@ -4,7 +4,11 @@ interface rawGbfs {
 
 interface Gbfs {
     languages?: string[],
-    feeds: Map<string, Map<string, string>>
+    feeds: Map<string, Map<string, string>>,
+    systemInformations: SystemInformation,
+    stationInformations: StationInformation,
+    stationStatus: Map<string, GbfsStationStatus>,
+    mapBounds: number[number[]]
 }
 
 interface GbfsFeed {
